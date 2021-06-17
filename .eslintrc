@@ -1,15 +1,17 @@
 {
-    
+    "env":{
+        "browser": true
+    },
     "extends": [
         
-      "airbnb",
+      "airbnb", 
       "prettier",
       "prettier/react"
     
     ],
 
     "rules": {
-
+        "import/no-unresolved":0,
         "react/jsx-filename-extension": [
             1, 
             {
@@ -17,5 +19,15 @@
             }
         ]
         //"react/jsx-max-props-per-line": [1, { "maximum": 1, "when": "always" }]
-    }   
+    }   ,
+
+
+    "settings": {
+        "import/resolver": {
+            "node" : {
+                "paths":["./src"],
+                "extensions":[".js",".jsx",".ts",".tsx"]
+            }
+        }
+    }
 }
