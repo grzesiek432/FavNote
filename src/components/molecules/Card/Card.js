@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import Paragraph from 'components/atoms/Paragraph/Paragraph';
 import Heading from 'components/atoms/Heading/Heading';
 import Button from 'components/atoms/Button/Button';
+import PropTypes from 'prop-types';
 
 const StyledWrapper = styled.div`
    box-shadow: 0 10px 30px -10px hsla(0, 0%, 0%, 0.1);
@@ -16,7 +17,7 @@ const StyledWrapper = styled.div`
 
 const InnerWrapper = styled.div`
    padding: 17px 30px;
-   background-color: ${({ yellow, theme }) => (yellow ? theme.primary : 'white')};
+   background-color: ${({ activeColor, theme }) => (activeColor ? theme[activeColor] : 'white')};
 
    ${({ flex }) =>
       flex &&
@@ -37,9 +38,9 @@ const StyledHeading = styled(Heading)`
    margin: 5px 0 0;
 `;
 
-const Card = () => (
+const Card = ({ cardType }) => (
    <StyledWrapper>
-      <InnerWrapper yellow>
+      <InnerWrapper activeColor={cardType}>
          <StyledHeading>Hello Grzegorz</StyledHeading>
          <DateInfo>3 Days</DateInfo>
       </InnerWrapper>
@@ -56,5 +57,13 @@ const Card = () => (
       </InnerWrapper>
    </StyledWrapper>
 );
+
+Card.propTypes = {
+   cardType: PropTypes.oneOf(['note', 'twitter', 'article']),
+};
+
+Card.defaultProps = {
+   cardType: 'note',
+};
 
 export default Card;
