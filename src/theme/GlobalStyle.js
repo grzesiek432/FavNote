@@ -3,12 +3,11 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyle = createGlobalStyle`
 
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:300;600');
 
     *,::after,::before {
       box-sizing: border-box;
-      -webkit-font-smoothing: antialiased;
-     -moz-osx-font-smoothing: grayscale;
+     
     }
 
 
@@ -18,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
 
     body{
 
-        font-family: "Montserrat", sans-serif;
+        font-family: 'Montserrat', sans-serif;
         font-size: 1.6rem; //happy rems;
      
     }
