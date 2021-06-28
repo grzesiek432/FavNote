@@ -51,7 +51,7 @@ const StyledAvatar = styled.img`
    border-radius: 50px;
    position: absolute;
    right: 25px;
-   top: 25px;
+   top: 10px;
 `;
 
 const StyledLinkButton = styled.a`
@@ -64,7 +64,7 @@ const StyledLinkButton = styled.a`
    background-position: 50%;
    position: absolute;
    right: 25px;
-   transform: translateY(-120%);
+   transform: translateY(-95%);
 `;
 
 const Card = ({ cardType }) => (
