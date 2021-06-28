@@ -1864,7 +1864,7 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@storybook/addon-actions@^6.2.9", "@storybook/addon-actions@6.2.9":
+"@storybook/addon-actions@^4.0.0||^5.0.0||5.2.0-beta.13", "@storybook/addon-actions@^6.2.9", "@storybook/addon-actions@6.2.9":
   "integrity" "sha512-CkUYSMt+fvuHfWvtDzlhhaeQBCWlUo99xdL88JTsTml05P43bIHZNIRv2QJ8DwhHuxdIPeHKLmz9y/ymOagOnw=="
   "resolved" "https://registry.npmjs.org/@storybook/addon-actions/-/addon-actions-6.2.9.tgz"
   "version" "6.2.9"
@@ -12432,7 +12432,7 @@
     "tiny-invariant" "^1.0.2"
     "tiny-warning" "^1.0.0"
 
-"react-router@5.2.0":
+"react-router@^4.0.0||^5.0.0", "react-router@5.2.0":
   "integrity" "sha512-smz1DUuFHRKdcJC0jobGo8cVbhO3x50tCL4icacOlcwDOEQPq4TMqwx3sY1TP+DvtTgz4nm3thuo7A+BK2U0Dw=="
   "resolved" "https://registry.npmjs.org/react-router/-/react-router-5.2.0.tgz"
   "version" "5.2.0"
@@ -13839,6 +13839,13 @@
   dependencies:
     "immutable" "^3.8.2"
     "recompose" "^0.27.1"
+
+"storybook-react-router@^1.0.8":
+  "integrity" "sha512-3PvuTu6cJHtF72WC3aKdIrUY1eUYsdVYEmW74nZiJoLCn0C/6iDx73w94jgI6lXq75aEJsri+lEDyhcokfP6YA=="
+  "resolved" "https://registry.npmjs.org/storybook-react-router/-/storybook-react-router-1.0.8.tgz"
+  "version" "1.0.8"
+  dependencies:
+    "prop-types" "^15.7.2"
 
 "stream-browserify@^2.0.1":
   "integrity" "sha512-nX6hmklHs/gr2FuxYDltq8fJA1GDlxKQCz8O/IM4atRqBH8OORmBNgfvW5gG10GT/qQ9u0CzIvr2X5Pkt6ntqg=="

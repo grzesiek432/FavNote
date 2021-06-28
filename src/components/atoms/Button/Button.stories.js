@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { select, withKnobs } from '@storybook/addon-knobs';
 import Button from './Button';
 
-storiesOf('Button', module)
+storiesOf('Atoms/Button', module)
    .addDecorator(withKnobs)
    .add('Primary', () => {
       const label = 'Colors';
