@@ -67,27 +67,18 @@ const StyledLinkButton = styled.a`
    transform: translateY(-95%);
 `;
 
-const Card = ({ cardType }) => (
+const Card = ({ cardType, title, created, content, articleUrl, twitterName }) => (
    <StyledWrapper>
       <InnerWrapper activeColor={cardType}>
-         <StyledHeading>Hello Grzegorz</StyledHeading>
-         <DateInfo>3 Days</DateInfo>
+         <StyledHeading>{title}</StyledHeading>
+         <DateInfo>{created}</DateInfo>
          {cardType === 'twitter' && (
-            <StyledAvatar src="https://pbs.twimg.com/profile_images/1104491562854158336/A-NTwQhW_400x400.png" />
+            <StyledAvatar src={`https://twitter.com/${twitterName}/photo`} />
          )}
-         {cardType === 'article' && (
-            <StyledLinkButton href="https://www.youtube.com/watch?v=jaQ8HyA33O0" />
-         )}
+         {cardType === 'article' && <StyledLinkButton href={articleUrl} />}
       </InnerWrapper>
       <InnerWrapper flex>
-         <Paragraph>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-            mollit anim id est laborum.
-         </Paragraph>
+         <Paragraph>{content}</Paragraph>
          <Button secondary>REMOVE</Button>
       </InnerWrapper>
    </StyledWrapper>
@@ -95,10 +86,17 @@ const Card = ({ cardType }) => (
 
 Card.propTypes = {
    cardType: PropTypes.oneOf(['note', 'twitter', 'article']),
+   title: PropTypes.string.isRequired,
+   created: PropTypes.string.isRequired,
+   twitterName: PropTypes.string,
+   articleUrl: PropTypes.string,
+   content: PropTypes.string.isRequired,
 };
 
 Card.defaultProps = {
    cardType: 'note',
+   articleUrl: '',
+   twitterName: '',
 };
 
 export default Card;
