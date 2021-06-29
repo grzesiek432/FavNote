@@ -1,10 +1,17 @@
 import styled, { css } from 'styled-components';
 
 const Button = styled.button`
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: black;
+   text-decoration: none;
+   padding: 0;
    width: 220px;
-   background-color: ${({ theme }) => theme.note};
+   background-color: ${({ activeColor, theme }) => theme[activeColor]};
    height: 47px;
    border: none;
+   font-family: 'Montserrat';
    border-radius: 50px;
    font-weight: 600;
    text-transform: uppercase;
