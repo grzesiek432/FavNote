@@ -53,13 +53,13 @@ const SideBar = ({ pageType }) => (
          </li>
 
          <li>
-            <ButtonIcon as={NavLink} to="/twitters" icon={twitterIcon} activeClass="active" />
+            <ButtonIcon as={NavLink} to="/twitters" icon={twitterIcon} />
          </li>
          <li>
-            <ButtonIcon as={NavLink} to="/articles" icon={bulbIcon} activeClass="active" />
+            <ButtonIcon as={NavLink} to="/articles" icon={bulbIcon} />
          </li>
       </StyledLinksList>
-      <StyledLogoutIcon as={NavLink} to="/login" icon={logoutIcon} activeClass="active" />
+      <StyledLogoutIcon as={NavLink} to="/login" icon={logoutIcon} />
    </StyledWrapper>
 );
 

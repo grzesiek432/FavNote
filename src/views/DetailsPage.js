@@ -48,7 +48,7 @@ class DetailsPage extends React.Component {
 }
 
 DetailsPage.propTypes = {
-   match: PropTypes.string.isRequired,
+   match: PropTypes.object.isRequired,
 };
 
 export default DetailsPage;
