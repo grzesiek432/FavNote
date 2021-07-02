@@ -20,6 +20,7 @@
         "react/prefer-stateless-function": 0,
         "react/state-in-constructor":0,
         "no-unused-vars":"warn",
+        "no-underscore-dangle":"warn",
         "react/jsx-filename-extension": [
             1, 
             {
