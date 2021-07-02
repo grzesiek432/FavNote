@@ -9,6 +9,10 @@
       "prettier/react"
     
     ],
+    "globals": {
+        "document": true,
+        "window" :true
+    },
     "parser": "babel-eslint",
 
     "rules": {
@@ -17,6 +21,7 @@
         "import/no-named-as-default": 0,
         "import/no-unresolved":0,
         "react/prop-types": 0,
+        "react/no-unused-state":0,
         "react/prefer-stateless-function": 0,
         "react/state-in-constructor":0,
         "no-unused-vars":"warn",

@@ -5,7 +5,7 @@ import GridTemplate from 'templates/GridTemplate';
 import PropTypes from 'prop-types';
 
 const Notes = ({ notes }) => (
-   <GridTemplate pageType="notes">
+   <GridTemplate>
       {notes.map(({ title, content, created, id }) => (
          <Card
             id={id}

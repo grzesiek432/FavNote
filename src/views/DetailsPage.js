@@ -5,24 +5,6 @@ import { routes } from 'routes';
 import PropTypes from 'prop-types';
 
 class DetailsPage extends React.Component {
-   state = {
-      pageType: 'notes',
-   };
-
-   componentDidMount() {
-      switch (this.props.match.path) {
-         case routes.twitter:
-            this.setState({ pageType: 'twitters' });
-            break;
-         case routes.note:
-            this.setState({ pageType: 'notes' });
-            break;
-         case routes.article:
-            this.setState({ pageType: 'articles' });
-            break;
-      }
-   }
-
    render() {
       const dummyArticle = {
          id: 1,
@@ -36,7 +18,6 @@ class DetailsPage extends React.Component {
       const { match } = this.props;
       return (
          <DetailsTemplate
-            pageType={this.state.pageType}
             title={dummyArticle.title}
             content={dummyArticle.content}
             created={dummyArticle.created}

@@ -5,7 +5,7 @@ import GridTemplate from 'templates/GridTemplate';
 import PropTypes from 'prop-types';
 
 const Twitters = ({ twitters }) => (
-   <GridTemplate pageType="twitters">
+   <GridTemplate>
       {twitters.map((item) => (
          <Card
             id={item.id}

@@ -6,6 +6,7 @@ import UserPageTemplate from 'templates/UserPageTemplate';
 import Heading from 'components/atoms/Heading/Heading';
 import Paragraph from 'components/atoms/Paragraph/Paragraph';
 import Button from 'components/atoms/Button/Button';
+import withContext from 'hoc/withContext';
 
 const StyledWrapper = styled.div`
    padding: 25px 150px 25px 70px;
@@ -52,8 +53,8 @@ const StyledImage = styled.img`
    border-radius: 50%;
 `;
 
-const DetailsTemplate = ({ pageType, title, content, articleUrl, twitterName, created }) => (
-   <UserPageTemplate pageType={pageType}>
+const DetailsTemplate = ({ pageContext, title, content, articleUrl, twitterName, created }) => (
+   <UserPageTemplate>
       <StyledWrapper>
          <StyledPageHeader>
             <StyledHeading big as="h1">
@@ -62,14 +63,14 @@ const DetailsTemplate = ({ pageType, title, content, articleUrl, twitterName, cr
             <StyledParagraph>{created}</StyledParagraph>
          </StyledPageHeader>
          <Paragraph>{content}</Paragraph>
-         {pageType === 'articles' && <StyledLink href={articleUrl}>Open Article</StyledLink>}
-         {pageType === 'twitters' && (
+         {pageContext === 'articles' && <StyledLink href={articleUrl}>Open Article</StyledLink>}
+         {pageContext === 'twitters' && (
             <StyledImage
                alt={title}
                src="https://pbs.twimg.com/profile_images/1104491562854158336/A-NTwQhW_400x400.png"
             />
          )}
-         <Button as={Link} to={`/${pageType}`} activeColor={pageType}>
+         <Button as={Link} to={`/${pageContext}`} activeColor={pageContext}>
             Close/Save
          </Button>
       </StyledWrapper>
@@ -77,7 +78,7 @@ const DetailsTemplate = ({ pageType, title, content, articleUrl, twitterName, cr
 );
 
 DetailsTemplate.propTypes = {
-   pageType: PropTypes.string.isRequired,
+   pageContext: PropTypes.string.isRequired,
    title: PropTypes.string,
    created: PropTypes.string,
    content: PropTypes.string,
@@ -93,4 +94,4 @@ DetailsTemplate.defaultProps = {
    twitterName: '',
 };
 
-export default DetailsTemplate;
+export default withContext(DetailsTemplate);
