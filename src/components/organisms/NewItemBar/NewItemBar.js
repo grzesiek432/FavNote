@@ -7,6 +7,7 @@ import withContext from 'hoc/withContext';
 import Heading from 'components/atoms/Heading/Heading';
 import { connect } from 'react-redux';
 import { addItem as addItemAction } from 'actions';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 const StyledWrapper = styled.div`
    border-left: 5px solid ${({ activeColor, theme }) => theme[activeColor]};
@@ -25,6 +26,11 @@ const StyledWrapper = styled.div`
    transition: transform 0.25s ease-in-out;
 `;
 
+const StyledForm = styled(Form)`
+   display: flex;
+   flex-direction: column;
+`;
+
 const StyledInput = styled(Input)`
    margin-top: 30px;
 `;
@@ -35,22 +41,61 @@ const StyledTextArea = styled(Input)`
    height: 30vh;
 `;
 
-const NewItemBar = ({ pageContext, isVisible, addItem }) => (
+const NewItemBar = ({ pageContext, isVisible, addItem, handleClose }) => (
    <StyledWrapper isVisible={isVisible} activeColor={pageContext}>
       <Heading big>Create new {pageContext}</Heading>
-      <StyledInput placeholder={pageContext === 'twitters' ? 'twitter eg. hello_roman' : 'title'} />
-      {pageContext === 'articles' && <StyledInput placeholder="link" />}
-      <StyledTextArea as="textarea" placeholder="Description" />
-      <Button
-         onClick={() =>
-            addItem(pageContext, {
-               title: 'Hello, Greg',
-               content: 'Lorem ipsum dolor sit amet',
-            })}
-         activeColor={pageContext}
+      <Formik
+         initialValues={{ title: '', content: '', articleUrl: '', twitterName: '', created: '' }}
+         onSubmit={(values) => {
+            addItem(pageContext, values);
+            handleClose();
+         }}
       >
-         Add Note
-      </Button>
+         {({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
+            <StyledForm>
+               <StyledInput
+                  type="text"
+                  name="title"
+                  placeholder="title"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.title}
+               />
+               {pageContext === 'twitters' && (
+                  <StyledInput
+                     placeholder="twitter name eg. hello_roman"
+                     type="text"
+                     name="twitterName"
+                     onChange={handleChange}
+                     onBlur={handleBlur}
+                     value={values.twitterName}
+                  />
+               )}
+               {pageContext === 'articles' && (
+                  <StyledInput
+                     placeholder="link"
+                     type="text"
+                     name="articleUrl"
+                     onChange={handleChange}
+                     onBlur={handleBlur}
+                     value={values.articleUrl}
+                  />
+               )}
+
+               <StyledTextArea
+                  placeholder="description"
+                  name="content"
+                  as="textarea"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.content}
+               />
+               <Button type="submit" activeColor={pageContext}>
+                  Add Note
+               </Button>
+            </StyledForm>
+         )}
+      </Formik>
    </StyledWrapper>
 );
 
