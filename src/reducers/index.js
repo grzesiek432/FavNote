@@ -1,5 +1,7 @@
 import {
-   ADD_ITEM,
+   ADD_ITEM_FAILURE,
+   ADD_ITEM_SUCCESS,
+   ADD_ITEM_REQUEST,
    REMOVE_ITEM_SUCCESS,
    REMOVE_ITEM_REQUEST,
    REMOVE_ITEM_FAILURE,
@@ -32,10 +34,10 @@ const rootReducer = (state = initialState, action) => {
                ...state[action.payload.itemType].filter((item) => item._id !== action.payload.id),
             ],
          };
-      case ADD_ITEM:
+      case ADD_ITEM_SUCCESS:
          return {
             ...state,
-            [action.payload.itemType]: [...state[action.payload.itemType], action.payload.item],
+            [action.payload.itemType]: [...state[action.payload.itemType], action.payload.data],
          };
       default:
          return state;
