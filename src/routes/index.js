@@ -7,4 +7,5 @@ export const routes = {
    note: '/notes/:id',
    twitter: '/twitters/:id',
    login: '/login',
+   register: '/register',
 };

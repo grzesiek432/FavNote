@@ -109,10 +109,9 @@ class Card extends React.Component {
 }
 
 Card.propTypes = {
-   id: PropTypes.number.isRequired,
+   id: PropTypes.string.isRequired,
    pageContext: PropTypes.oneOf(['notes', 'twitters', 'articles']),
    title: PropTypes.string.isRequired,
-   created: PropTypes.string.isRequired,
    twitterName: PropTypes.string,
    articleUrl: PropTypes.string,
    content: PropTypes.string.isRequired,
